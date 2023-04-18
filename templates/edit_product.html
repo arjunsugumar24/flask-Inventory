@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post">
+  Name: <input name="name" value="{{product.name}}" />
+  <br /><br />
+  Quantity: <input name="quantity" value="{{product.quantity}}" />
+  <br /><br />
+  <button type="submit">Submit</button>
+</form>
+{% endblock content %}

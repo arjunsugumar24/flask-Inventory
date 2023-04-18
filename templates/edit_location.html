@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post">
+  Name: <input name="name" value="{{location.name}}" />
+  <br /><br />
+  <button type="submit">Submit</button>
+</form>
+{% endblock content %}

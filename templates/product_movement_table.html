@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{%endfor%}
+
+<a href="{{ url_for('pm_add') }}">
+  <button type="button" class="btn btn-primary">Add Movement</button>
+</a>
+
+<table id="data" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Time stamp</th>
+      <th>From location</th>
+      <th>To location</th>
+      <th>Product</th>
+      <th>Quantity</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for pm, pro in pms %}
+    <tr>
+      <td>{{ pm.movement_id }}</td>
+      <td>{{ pm.date_created }} </td>
+      <td> {{ pm.from_location }}</td>
+      <td> {{ pm.to_location }}</td>
+      <td> {{ pro.name }}</td>
+      <td>{{ pm.quantity }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
