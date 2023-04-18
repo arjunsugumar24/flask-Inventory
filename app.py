@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
 
+app.config['SECRET_KEY'] = '545b22caac41acbf'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:root@localhost/arjundb'
 db=SQLAlchemy(app)
