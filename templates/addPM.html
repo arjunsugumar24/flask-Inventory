@@ -1,36 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="post">
-  Product Name: 
-  <select name="product_id">
-      {% for pro in products %}
-      <option value= "{{pro.product_id}}" >{{pro.name}}</option>"
-      {% endfor %}
-  </select>
-  <br /><br />
-  Product Quantity: <input type="number" name="quantity" />
-  <br /><br />
-  Product Source: 
-  <select name="to_location">
-    {% for loc in locations %}
-    <option value= "{{loc.name}}" >{{loc.name}}</option>"
-    {% endfor %}
-</select>
 
+<div class="container">
+  <form method="post">
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Product Name</label>
+      <div class="col-sm-10">
+        <select name="product_id" class="form-control">
+          <option value="">Select</option>"
+          {% for pro in products %}
+          <option value="{{pro.product_id}}">{{pro.name}}</option>"
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <br /><br />
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Quantity</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" name="quantity" placeholder="Quantity">
+      </div>
+    </div>
   <br /><br />
-  Product Destination: 
-  <select name="from_location">
-    {% for loc in locations %}
-    <option value= "{{loc.name}}" >{{loc.name}}</option>"
-    {% endfor %}
-</select>
-
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Product Source</label>
+    <div class="col-sm-10">
+      <select name="to_location" class="form-control">
+        <option value="">Select</option>"
+        {% for loc in locations %}
+        <option value="{{loc.name}}">{{loc.name}}</option>"
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <br /><br />
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Product Destination</label>
+    <div class="col-sm-10">
+      <select name="from_location" class="form-control">
+        <option value="">Select</option>"
+        {% for loc in locations %}
+        <option value="{{loc.name}}">{{loc.name}}</option>"
+        {% endfor %}
+      </select>
+    </div>
+  </div>
   <br /><br />
   <button type="submit" class="btn btn-primary">Submit</button>
   <a href="/pms">
     <button type="button" class="btn btn-secondary">Back</button>
-    <!-- <button type="button" class="btn btn-delete">
   </a>
-</form>
-{% endblock content %}
+  </form>
+</div>
+    {% endblock content %}

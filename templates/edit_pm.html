@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+      <form method="post">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"> Product Name </label>
+          <div class="col-sm-10">
+            <select name="product_id" value="{{pm.product_id}}" class="form-control">
+              <option value="">Select</option>"
+              {% for pro in products %}
+                {% if pm.product_id == pro.product_id %}
+                  <option value="{{pro.product_id}}" selected='selected'>{{pro.name}}</option>"
+                {% else %}
+                  <option value="{{pro.product_id}}">{{pro.name}}</option>"
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <br /><br />
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Quantity</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" name="quantity"  value="{{pm.quantity}}"  placeholder="Quantity">
+          </div>
+        </div>
+      <br /><br />
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Product Source</label>
+        <div class="col-sm-10">
+          <select name="from_location" class="form-control">
+            <option value="">Select</option>"
+            {% for loc in locations %}
+              {% if pm.from_location == loc.name %}
+                  <option value="{{loc.name}}"  selected='selected'>{{loc.name}}</option>"
+                {% else %}
+                  <option value="{{loc.name}}">{{loc.name}}</option>"
+                {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <br /><br />
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Product Destination</label>
+        <div class="col-sm-10">
+          <select name="to_location" class="form-control">
+            <option value="">Select</option>"
+
+            {% for loc in locations %}
+              {% if pm.to_location == loc.name %}
+                  <option value="{{loc.name}}"  selected='selected'>{{loc.name}}</option>"
+                {% else %}
+                  <option value="{{loc.name}}">{{loc.name}}</option>"
+                {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <br /><br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a href="/pms">
+        <button type="button" class="btn btn-secondary">Back</button>
+      </a>
+      </form>
+    </div>
+
+    {% endblock content %}

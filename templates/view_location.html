@@ -4,23 +4,23 @@
 <div class="container">
   <form method="post">
     <div class="form-group row">
-      <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+      <label  class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="name">
+        <input type="text" readonly class="form-control-plaintext"  value="{{location.name}}" name="name">
       </div>
     </div>
     <br /><br />
     <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">Quantity</label>
+      <label  class="col-sm-2 col-form-label">Create On</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" name="quantity" placeholder="Quantity">
+        <input type="text"readonly class="form-control-plaintext"  value="{{location.date_created}}" name="date_created">
       </div>
     </div>
     <br /><br />
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="/">
+    <a href="/locations">
       <button type="button" class="btn btn-secondary">Back</button>
     </a>
   </form>
 </div>
+
 {% endblock content %}

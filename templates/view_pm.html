@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+      <form method="post">
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"> Product Name </label>
+          <div class="col-sm-10">
+           
+              
+              {% for pro in products %}
+                {% if pm.product_id == pro.product_id %}
+                <input type="text" readonly class="form-control-plaintext" name="product_id"  value="{{pro.name}}"  placeholder="product_id">
+                {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+        <br /><br />
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Quantity</label>
+          <div class="col-sm-10">
+            <input type="number" readonly class="form-control-plaintext" name="quantity"  value="{{pm.quantity}}"  placeholder="Quantity">
+          </div>
+        </div>
+      <br /><br />
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Product Source</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" name="from_location"  value="{{pm.from_location}}"  placeholder="from_location">
+        </div>
+        
+      </div>
+      <br /><br />
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Product Destination</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" name="to_location"  value="{{pm.to_location}}"  placeholder="to_location">
+        </div>
+      </div>
+      <br /><br />
+      <a href="/pms">
+        <button type="button" class="btn btn-secondary">Back</button>
+      </a>
+      </form>
+    </div>
+
+    {% endblock content %}
